@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header / Nav */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+.nav-links li {
+  margin-left: 20px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #ffd700;
+}
+
+/* Hero Section */
+.hero {
+  background: url(images/tim-toomey-STqHLqMne3k-unsplash.jpg) no-repeat center/cover;
+  color: white;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 0;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+.hero h4 {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: normal;
+  opacity: 0.8;
+  margin-bottom: 0.5em;
+}
+.hero h1 {
+  font-size: 3em;
+  margin: 0.5em 0;
+}
+.hero .btn {
+  display: inline-block;
+  padding: 12px 30px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 50px;
+  background: #ff6f61;
+  color: white;
+  font-size: 1em;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.hero .btn:hover {
+  background: #e65a50;
+}
+
+/* About Section */
+#about {
+  padding: 60px 0;
+  background: #f9f9f9;
+  text-align: center;
+}
+#about h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+#about p.intro {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 40px;
+}
+.cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card img {
+  width: 100%;
+  display: block;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.card h3 {
+  margin: 20px 0 10px;
+}
+.card p {
+  padding: 0 20px 20px;
+  color: #666;
+  flex-grow: 1;
+}
+
+/* Dining Ambiance Section */
+.dining-ambiance {
+  display: flex;
+  align-items: stretch;
+  padding: 60px 0;
+}
+.ambiance-left {
+  background: #f5e9d7;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.ambiance-left img {
+  width: 80%;
+  border-radius: 8px;
+}
+.ambiance-right {
+  flex: 1;
+  padding: 20px;
+}
+.ambiance-right h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+.ambiance-right p {
+  color: #555;
+  margin-bottom: 20px;
+}
+.ambiance-right .btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px;
+  background: #333;
+  color: white;
+  font-size: 1em;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.ambiance-right .btn:hover {
+  background: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  .nav-links li {
+    margin: 10px 0;
+  }
+  .cards {
+    flex-direction: column;
+  }
+  .card {
+    margin: 10px 0;
+  }
+  .dining-ambiance {
+    flex-direction: column;
+  }
+  .ambiance-left {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 2em;
+  }
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.intro {
+  margin: 20px auto;
+  max-width: 800px;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.card {
+  width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px; /* Fixed uniform height */
+  object-fit: cover; /* Makes all images look neat */
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #222;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
