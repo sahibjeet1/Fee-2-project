@@ -53,6 +53,28 @@ body {
   z-index: 999;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #d05971;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ff6f61, #ff9472, #d05971, #ff6f61);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shineFont 2.5s linear infinite;
+}
+
+@keyframes shineFont {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
 .logo {
   font-size: 1.8em;
   font-weight: bold;
