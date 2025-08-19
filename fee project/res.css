@@ -313,9 +313,7 @@ body {
   padding-bottom: 3px;
 }
 
-.auth-links a.signup {
-  border-bottom: 2px solid #ff6f61; 
-}
+
 
 .auth-links a:hover {
   color: #ff6f61;
