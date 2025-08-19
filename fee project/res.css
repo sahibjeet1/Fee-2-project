@@ -304,3 +304,32 @@ body {
     font-size: 2.2em;
   }
 }
+.auth-links {
+  position: absolute;
+  top: 20px;        
+  right: 40px;      
+  display: flex;
+  gap: 20px;
+}
+.auth-links {
+  position: fixed;
+  top: 25px;
+  right: 40px;
+  z-index: 1000;
+}
+.auth-links a {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.auth-links a.signup {
+  border-bottom: 2px solid #ff6f61; 
+}
+
+.auth-links a:hover {
+  color: #ff6f61;
+}
