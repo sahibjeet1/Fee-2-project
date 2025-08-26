@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fdfaf5;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Section headings */
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  font-family: 'Georgia', serif;
+  color: #5b4636;
+}
+
+/* Passion Section */
+.passion-section {
+  padding: 2em 1em;
+  background-color: #fffdfa;
+}
+.passion-section p {
+  max-width: 800px;
+  margin: 0.5em auto;
+  padding: 0 1em;
+}
+
+/* Image Grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1em;
+  padding: 1em;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.image-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Story Section */
+.story-section {
+  padding: 2em 1em;
+  background-color: #ffffff;
+}
+.story-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.story-text {
+  flex: 1 1 300px;
+  padding: 1em;
+}
+.story-text p {
+  margin-bottom: 1em;
+}
+.story-image {
+  flex: 1 1 300px;
+  padding: 1em;
+  text-align: center;
+}
+.story-image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Speciality Section */
+.speciality-section {
+  padding: 2em 1em;
+  background-color: #fffdfa;
+}
+.specialities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+  padding: 1em;
+}
+.speciality-item {
+  flex: 1 1 200px;
+  text-align: center;
+}
+.arch-container {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  margin: 0 auto;
+  border-top-left-radius: 100px 50px;
+  border-top-right-radius: 100px 50px;
+  overflow: hidden;
+}
+.arch-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.arch-button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 0.5em 1em;
+  border: 1px solid #5b4636;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #5b4636;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .story-content {
+    flex-direction: column;
+  }
+  .specialities {
+    flex-direction: column;
+  }
+  .arch-container {
+    width: 150px;
+    height: 200px;
+  }
+}
