@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amoura | Menu</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('images/food-bg.jpg') center/cover fixed no-repeat; /* ✅ background image */
+      color: #fff;  /* text ko white kar diya taaki readable ho */
+      line-height: 1.6;
+    }
+
+    /* Hero Header */
+    header {
+      background: url("images/bg.png") center/cover no-repeat fixed;
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fffbfb;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.45);
+    }
+    header h1 {
+      font-size: 60px;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+      animation: fadeDown 1.5s ease;
+    }
+
+    /* Section Title */
+    .section-title {
+      text-align: center;
+      font-size: 34px;
+      font-weight: bold;
+      margin: 80px 0 40px;
+      color: #0a0a0a; /* white taaki bg pe dikhe */
+      position: relative;
+    }
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 4px;
+      background: #f77f6f;
+      margin: 12px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Menu Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1300px;
+      margin: auto;
+      padding: 0 20px 60px;
+    }
+
+    .menu-card {
+      background: rgba(0,0,0,0.6); /* ✅ Transparent black card */
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      color: #fff; /* card ke andar text white */
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .menu-card:hover img {
+      transform: scale(1.08);
+      filter: brightness(70%);
+    }
+
+    /* Overlay on hover */
+    .menu-overlay {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      background: rgba(247,127,111,0.9);
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      transition: bottom 0.4s ease;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .menu-card:hover .menu-overlay {
+      bottom: 0;
+    }
+
+    .menu-info {
+      padding: 20px;
+    }
+
+    .menu-info h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu-info p {
+      font-size: 15px;
+      color: #ddd;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #f77f6f;
+      font-size: 18px;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: rgba(255, 255, 255, 0.6);
+      padding: 60px 20px;
+      text-align: center;
+      font-style: italic;
+      font-size: 20px;
+      color: #0a0a0a;
+      border-radius: 10px;
+      max-width: 900px;
+      margin: 40px auto;
+    }
+    .testimonial span {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #f77f6f;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(135deg,#322f37,#2a3829);
+      color: #fff;
+      font-size: 14px;
+      margin-top: 60px;
+      letter-spacing: 1px;
+      position: relative;
+    }
+    footer span { color: #f77f6f; }
+
+    /* Animations */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero Header -->
+<header>
+  <h1>Our Menu</h1>
+</header>
+
+
+<!-- South Indian -->
+<h2 class="section-title">🥘 South Indian</h2>
+<div class="menu-grid">
+  <div class="menu-card">
+    <img src="images/dosa.png" alt="Masala Dosa">
+    <div class="menu-overlay">Order Now</div>
+    <div class="menu-info">
+      <h3>Masala Dosa <span class="price">₹150</span></h3>
+      <p>Crispy dosa stuffed with spiced potato, served with chutney & sambar.</p>
+    </div>
+  </div>
+  <div class="menu-card">
+    <img src="images/idli.png" alt="Idli Sambar">
+    <div class="menu-overlay">Order Now</div>
+    <div class="menu-info">
+      <h3>Idli Sambar <span class="price">₹120</span></h3>
+      <p>Soft steamed idlis with tangy sambar & coconut chutney.</p>
+    </div>
+  </div>
+</div>
+
+<!-- North Indian -->
+<h2 class="section-title">🍛 North Indian</h2>
+<div class="menu-grid">
+  <div class="menu-card">
+    <img src="images/paneer.png" alt="Paneer Butter Masala">
+    <div class="menu-overlay">Order Now</div>
+    <div class="menu-info">
+      <h3>Paneer Butter Masala <span class="price">₹240</span></h3>
+      <p>Cottage cheese in a creamy tomato gravy.</p>
+    </div>
+  </div>
+  <div class="menu-card">
+    <img src="images/rice.png" alt="Chicken Biryani">
+    <div class="menu-overlay">Order Now</div>
+    <div class="menu-info">
+      <h3>Chicken Biryani <span class="price">₹320</span></h3>
+      <p>Flavored basmati rice cooked with marinated chicken & spices.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Chinese -->
+<h2 class="section-title">🍜 Chinese</h2>
+<div class="menu-grid">
+  <div class="menu-card">
+    <img src="images/hakka.png" alt="Veg Hakka Noodles">
+    <div class="menu-overlay">Order Now</div>
+    <div class="menu-info">
+      <h3>Veg Hakka Noodles <span class="price">₹180</span></h3>
+      <p>Stir-fried noodles with vegetables & soy sauce.</p>
+    </div>
+  </div>
+  <div class="menu-card">
+    <img src="images/chick.png" alt="Chilli Chicken">
+    <div class="menu-overlay">Order Now</div>
+    <div class="menu-info">
+      <h3>Chilli Chicken <span class="price">₹260</span></h3>
+      <p>Spicy chicken tossed with onions, capsicum & sauces.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Desserts -->
+<h2 class="section-title">🍰 Desserts</h2>
+<div class="menu-grid">
+  <div class="menu-card">
+    <img src="images/jamun.png" alt="Gulab Jamun">
+    <div class="menu-overlay">Order Now</div>
+    <div class="menu-info">
+      <h3>Gulab Jamun <span class="price">₹120</span></h3>
+      <p>Soft fried dumplings soaked in sugar syrup.</p>
+    </div>
+  </div>
+  <div class="menu-card">
+    <img src="images/brownie.png" alt="Chocolate Brownie">
+    <div class="menu-overlay">Order Now</div>
+    <div class="menu-info">
+      <h3>Chocolate Brownie <span class="price">₹180</span></h3>
+      <p>Rich brownie served with vanilla ice cream.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Beverages -->
+<h2 class="section-title">☕ Beverages</h2>
+<div class="menu-grid">
+  <div class="menu-card">
+    <img src="images/chai.png" alt="Masala Chai">
+    <div class="menu-overlay">Order Now</div>
+    <div class="menu-info">
+      <h3>Masala Chai <span class="price">₹50</span></h3>
+      <p>Traditional Indian spiced tea.</p>
+    </div>
+  </div>
+  <div class="menu-card">
+    <img src="images/coffe.png" alt="Cold Coffee">
+    <div class="menu-overlay">Order Now</div>
+    <div class="menu-info">
+      <h3>Cold Coffee <span class="price">₹120</span></h3>
+      <p>Chilled coffee blended with ice cream.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonial -->
+<div class="testimonial">
+  "Delicious food, cozy ambiance, and quick service! A must-visit restaurant in town."
+  <span>- Happy Customer</span>
+</div>
+
+<footer>
+  © 2025 Amoura Restaurant. Crafted with <span>❤</span> and passion.
+</footer>
+
+</body>
+</html>
