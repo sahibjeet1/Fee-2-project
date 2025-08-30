@@ -157,7 +157,7 @@ body {
 }
 #about p.intro {
   font-size: 1.2em;
-  color: #555;
+  color: #000000;
   margin-bottom: 40px;
 }
 .cards {
@@ -234,14 +234,14 @@ body {
   padding: 14px 35px;
   border: none;
   border-radius: 50px;
-  background: #333;
+  background: #000000;
   color: white;
   font-size: 1em;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 .ambiance-right .btn:hover {
-  background: #555;
+  background: #000000;
   transform: scale(1.05);
 }
 
