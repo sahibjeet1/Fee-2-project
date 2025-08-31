@@ -1,0 +1,68 @@
+/* General Page Style */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f5f5dc; /* Beige background */
+  color: #001f3f; /* Navy blue text */
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 40px;
+  background: #001f3f; /* Navy blue header */
+  color: #f5f5dc; /* Beige text */
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Menu Section */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Menu Items */
+.menu-item {
+  background: #fff; /* White cards */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.menu-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+.menu-item h2 {
+  color: #001f3f; /* Navy blue headings */
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.menu-item p {
+  font-size: 0.95rem;
+  color: #333; /* Dark gray for readability */
+  margin-bottom: 12px;
+}
+
+.menu-item span {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #001f3f; /* Navy blue price */
+}
