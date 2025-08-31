@@ -169,7 +169,141 @@
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-30px);}
       to { opacity: 1; transform: translateY(0);}
+
     }
+
+    /* Reviews Section */
+/* Reviews Section */
+.reviews {
+  display: flex;              
+  justify-content: center;    
+  gap: 30px;                  
+  flex-wrap: wrap;            
+  max-width: 1300px;
+  margin: 50px auto 100px;
+  padding: 0 25px;
+}
+
+.review-card {
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  color: #222;
+  padding: 30px 20px;
+  border-radius: 18px;
+  text-align: center;
+  width: 260px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.review-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.review-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 14px;
+  object-fit: cover;
+  border: 3px solid #dbcfcf; /* highlight with brand color */
+}
+
+.review-card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.stars {
+  color: #ff7675; /* coral/red highlight */
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.review-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 50px 0;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #fff7f7;
+  background: #2c2929;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+  background: #c4b3b1;
+}
+
+.pagination a.active {
+  background: hsl(7, 89%, 70%);
+  border: 2px solid #f4f3f3;
+}
+/* 🔹 Bottom Navbar Styling */
+.bottom-navbar {
+  width: 100%;
+  background: #ffffff; /* Tomato red background */
+  text-align: center;
+  padding: 15px 0;
+  position: relative;
+  margin-top: 40px;
+}
+
+.bottom-navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  gap: 40px;
+}
+
+.bottom-navbar ul li a {
+  text-decoration: none;
+  color: #0c0c0c;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.bottom-navbar ul li a:hover {
+  color: #000;
+}
+
+.bottom-navbar ul li a {
+  text-decoration: none;
+  color: #121111;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.bottom-navbar ul li a:hover {
+  background:  hsl(7, 89%, 70%);
+  color:white;   /* text color tomato ho jayega */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+
+
   </style>
 </head>
 <body>
@@ -284,6 +418,13 @@
     </div>
   </div>
 </div>
+<!-- Menu Pagination -->
+<div class="pagination">
+  <a href="menu1.html" class="active">1</a>
+  <a href="menu2.html">2</a>
+  <a href="menu3.html">3</a>
+  <a href="menu2.html">&rarr;</a>
+</div>
 
 <!-- Testimonial -->
 <div class="testimonial">
@@ -291,9 +432,69 @@
   <span>- Happy Customer</span>
 </div>
 
+<!-- Customer Reviews -->
+Customer Reviews
+<h2 class="section-title">💬 Customer's Review</h2>
+<div class="reviews" style="display: flex; gap: 20px; justify-content: center; flex-wrap: nowrap;">
+  
+  <div class="review-card" style="text-align: center; width: 200px;">
+    <img src="images/dill.png" alt="Customer 1" style="width:100px; border-radius:50%;">
+    <h3>Dil Sharma</h3>
+    <p class="stars">★★★★★</p>
+    <p>"Amazing variety and excellent taste. The staff is super friendly!"</p>
+  </div>
+
+  <div class="review-card" style="text-align: center; width: 200px;">
+    <img src="images/aryan.jpg" alt="Customer 2" style="width:100px; border-radius:50%;">
+    <h3>Aryan Sharma</h3>
+    <p class="stars">★★★★☆</p>
+    <p>"I love the cold coffee here, definitely the best in town."</p>
+  </div>
+
+  <div class="review-card" style="text-align: center; width: 200px;">
+    <img src="images/sahib.png" alt="Customer 3" style="width:100px; border-radius:50%;">
+    <h3>Sahibjeet Singh</h3>
+    <p class="stars">★★★★★</p>
+    <p>"Delicious food, cozy ambiance, and quick service! A must-visit restaurant."</p>
+  </div>
+
+  <div class="review-card" style="text-align: center; width: 200px;">
+    <img src="images/devansh.jpg" alt="Customer 4" style="width:100px; border-radius:50%;">
+    <h3>Devansh Mangla</h3>
+    <p class="stars">★★★★★</p>
+    <p>"The biryani was absolutely delicious! I’ll definitely come again with friends."</p>
+  </div>
+
+  <div class="review-card" style="text-align: center; width: 200px;">
+    <img src="images/gia.png" alt="Customer 5" style="width:100px; border-radius:50%;">
+    <h3>Gia Goyal</h3>
+    <p class="stars">★★★★☆</p>
+    <p>"Loved the desserts, especially the chocolate lava cake. Highly recommend!"</p>
+  </div>
+
+</div>
+
+
+<!-- 🔹 Simple Navigation Bar -->
+<nav class="bottom-navbar">
+  <ul>
+    <li><a href="restaurant.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+
+
+
+
 <footer>
   © 2025 Amoura Restaurant. Crafted with <span>❤</span> and passion.
 </footer>
+
+ 
+
 
 </body>
 </html>
