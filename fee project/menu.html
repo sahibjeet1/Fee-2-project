@@ -1,511 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amoura | Menu</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: url('images/food-bg.jpg') center/cover fixed no-repeat; /* ✅ background image */
-      color: #fff;  /* text ko white kar diya taaki readable ho */
-      line-height: 1.6;
-    }
-
-    /* Hero Header */
-    header {
-      background: url("images/bg.png") center/cover no-repeat fixed;
-      height: 420px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fffbfb;
-      position: relative;
-    }
-    header::after {
-      content: "";
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.45);
-    }
-    header h1 {
-      font-size: 60px;
-      font-weight: bold;
-      position: relative;
-      z-index: 1;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-      animation: fadeDown 1.5s ease;
-    }
-
-    /* Section Title */
-    .section-title {
-      text-align: center;
-      font-size: 34px;
-      font-weight: bold;
-      margin: 80px 0 40px;
-      color: #0a0a0a; /* white taaki bg pe dikhe */
-      position: relative;
-    }
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 90px;
-      height: 4px;
-      background: #f77f6f;
-      margin: 12px auto 0;
-      border-radius: 2px;
-    }
-
-    /* Menu Grid */
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1300px;
-      margin: auto;
-      padding: 0 20px 60px;
-    }
-
-    .menu-card {
-      background: rgba(0,0,0,0.6); /* ✅ Transparent black card */
-      border-radius: 15px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      color: #fff; /* card ke andar text white */
-    }
-
-    .menu-card img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      transition: transform 0.4s ease, filter 0.4s ease;
-    }
-
-    .menu-card:hover img {
-      transform: scale(1.08);
-      filter: brightness(70%);
-    }
-
-    /* Overlay on hover */
-    .menu-overlay {
-      position: absolute;
-      bottom: -100%;
-      left: 0;
-      width: 100%;
-      background: rgba(247,127,111,0.9);
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      transition: bottom 0.4s ease;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .menu-card:hover .menu-overlay {
-      bottom: 0;
-    }
-
-    .menu-info {
-      padding: 20px;
-    }
-
-    .menu-info h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .menu-info p {
-      font-size: 15px;
-      color: #ddd;
-    }
-
-    .price {
-      font-weight: bold;
-      color: #f77f6f;
-      font-size: 18px;
-    }
-
-    /* Testimonials */
-    .testimonial {
-      background: rgba(255, 255, 255, 0.6);
-      padding: 60px 20px;
-      text-align: center;
-      font-style: italic;
-      font-size: 20px;
-      color: #0a0a0a;
-      border-radius: 10px;
-      max-width: 900px;
-      margin: 40px auto;
-    }
-    .testimonial span {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-      color: #f77f6f;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 40px;
-      background: linear-gradient(135deg,#322f37,#2a3829);
-      color: #fff;
-      font-size: 14px;
-      margin-top: 60px;
-      letter-spacing: 1px;
-      position: relative;
-    }
-    footer span { color: #f77f6f; }
-
-    /* Animations */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-30px);}
-      to { opacity: 1; transform: translateY(0);}
-
-    }
-
-    /* Reviews Section */
-/* Reviews Section */
-.reviews {
-  display: flex;              
-  justify-content: center;    
-  gap: 30px;                  
-  flex-wrap: wrap;            
-  max-width: 1300px;
-  margin: 50px auto 100px;
-  padding: 0 25px;
-}
-
-.review-card {
-  background: linear-gradient(135deg, #ffffff, #f9f9f9);
-  color: #222;
-  padding: 30px 20px;
-  border-radius: 18px;
-  text-align: center;
-  width: 260px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.review-card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-}
-
-.review-card img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  margin-bottom: 14px;
-  object-fit: cover;
-  border: 3px solid #dbcfcf; /* highlight with brand color */
-}
-
-.review-card h3 {
-  font-size: 20px;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #333;
-}
-
-.stars {
-  color: #ff7675; /* coral/red highlight */
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-.review-card p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* Pagination */
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin: 50px 0;
-}
-
-.pagination a {
-  text-decoration: none;
-  color: #fff7f7;
-  background: #2c2929;
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.pagination a:hover {
-  background: #c4b3b1;
-}
-
-.pagination a.active {
-  background: hsl(7, 89%, 70%);
-  border: 2px solid #f4f3f3;
-}
-/* 🔹 Bottom Navbar Styling */
-.bottom-navbar {
-  width: 100%;
-  background: #ffffff; /* Tomato red background */
-  text-align: center;
-  padding: 15px 0;
-  position: relative;
-  margin-top: 40px;
-}
-
-.bottom-navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: inline-flex;
-  gap: 40px;
-}
-
-.bottom-navbar ul li a {
-  text-decoration: none;
-  color: #0c0c0c;
-  font-size: 18px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.bottom-navbar ul li a:hover {
-  color: #000;
-}
-
-.bottom-navbar ul li a {
-  text-decoration: none;
-  color: #121111;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.bottom-navbar ul li a:hover {
-  background:  hsl(7, 89%, 70%);
-  color:white;   /* text color tomato ho jayega */
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-}
-
-
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amoura | Menu</title>
+    <link rel="stylesheet" href="menu.css">
 </head>
 <body>
 
-<!-- Hero Header -->
 <header>
-  <h1>Our Menu</h1>
-</div>
-
-
-  <style>
-    button:hover {
-      background: linear-gradient(135deg, #f55d4e, #f33d2c);
-      transform: scale(1.08);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-    }
-  </style>
+    <h1>Our Menu</h1>
 </header>
 
-
-
-<!-- South Indian -->
-<h2 class="section-title">Italian</h2>
-<div class="menu-grid">
-  <div class="menu-card">
-    <img src="images/lasagna.jpg" alt="lasagna">
-    <div class="menu-overlay">Order Now</div>
-    <div class="menu-info">
-      <h3>Lasagna<span class="price">₹550</span></h3>
-      <p>Layers of pasta, rich meat sauce, creamy béchamel, and melted cheese baked to perfection.</p>
-    </div>
-  </div>
-  <div class="menu-card">
-    <img src="images/bruchetta.jpg" alt="Bruschetta">
-    <div class="menu-overlay">Order Now</div>
-    <div class="menu-info">
-      <h3>Bruschetta<span class="price">₹320</span></h3>
-      <p>Grilled bread topped with fresh tomatoes, garlic, basil, and olive oil.</p>
-    </div>
-  </div>
+<div class="category-nav">
+    <button class="category-btn active-tab" data-category="all">All Items</button>
+    <button class="category-btn" data-category="italian">Italian</button>
+    <button class="category-btn" data-category="mediterranean">Mediterranean</button>
+    <button class="category-btn" data-category="chinese">Chinese</button>
+    <button class="category-btn" data-category="mexican">Mexican</button>
+    <button class="category-btn" data-category="thai">Thai</button>
 </div>
 
-<!-- North Indian -->
-<h2 class="section-title">Mediterranean</h2>
-<div class="menu-grid">
-  <div class="menu-card">
-    <img src="images/Falafel.jpg" alt="Falafel">
-    <div class="menu-overlay">Order Now</div>
-    <div class="menu-info">
-      <h3>Falafel <span class="price">₹240</span></h3>
-      <p>Golden fried chickpea balls served with tahini sauce.</p>
+<div class="menu-grid" id="menu-items-container">
+    
+    <h2 class="section-title" data-category-title="italian">Italian</h2>
+    <div class="menu-card" data-category="italian">
+        <img src="images/lasagna.jpg" alt="lasagna">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Lasagna<span class="price">₹550</span></h3>
+            <p>Layers of pasta, rich meat sauce, creamy béchamel, and melted cheese baked to perfection.</p>
+        </div>
     </div>
-  </div>
-  <div class="menu-card">
-    <img src="images/greek.jpg" alt="Greek Salad">
-    <div class="menu-overlay">Order Now</div>
-    <div class="menu-info">
-      <h3>Greek Salad<span class="price">₹320</span></h3>
-      <p>Crisp cucumbers, tomatoes, olives, and feta tossed in olive oil.</p>
+    <div class="menu-card" data-category="italian">
+        <img src="images/bruchetta.jpg" alt="Bruschetta">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Bruschetta<span class="price">₹320</span></h3>
+            <p>Grilled bread topped with fresh tomatoes, garlic, basil, and olive oil.</p>
+        </div>
     </div>
-  </div>
+    <div class="menu-card" data-category="italian">
+        <img src="images/pizza.png" alt="Pizza Margherita">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Pizza Margherita<span class="price">₹480</span></h3>
+            <p>Classic Neapolitan pizza, topped with San Marzano tomatoes, mozzarella, basil, and olive oil.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="italian">
+        <img src="images/delicious-pasta-plate.jpg" alt="Spaghetti Carbonara">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Spaghetti Carbonara<span class="price">₹590</span></h3>
+            <p>Pasta with eggs, hard cheese, cured pork (guanciale), and black pepper.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title" data-category-title="mediterranean">Mediterranean</h2>
+    <div class="menu-card" data-category="mediterranean">
+        <img src="images/Falafel.jpg" alt="Falafel">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Falafel <span class="price">₹240</span></h3>
+            <p>Golden fried chickpea balls served with tahini sauce.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="mediterranean">
+        <img src="images/greek.jpg" alt="Greek Salad">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Greek Salad<span class="price">₹320</span></h3>
+            <p>Crisp cucumbers, tomatoes, olives, and feta tossed in olive oil.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="mediterranean">
+        <img src="images/various-kebab-with-rice-vegetables.jpg" alt="Chicken Souvlaki">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Chicken Souvlaki<span class="price">₹450</span></h3>
+            <p>Marinated chicken skewers, grilled and served with pita and tzatziki.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="mediterranean">
+        <img src="images/delicious-hummus-plate-high-angle.jpg" alt="Hummus Platter">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Hummus Platter<span class="price">₹290</span></h3>
+            <p>Smooth chickpea dip blended with tahini and lemon, served with warm pita bread.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title" data-category-title="chinese">Chinese</h2>
+    <div class="menu-card" data-category="chinese">
+        <img src="images/hakka.png" alt="Veg Hakka Noodles">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Veg Hakka Noodles <span class="price">₹180</span></h3>
+            <p>Stir-fried noodles with vegetables & soy sauce.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="chinese">
+        <img src="images/chick.png" alt="Chilli Chicken">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Chilli Chicken <span class="price">₹260</span></h3>
+            <p>Spicy chicken tossed with onions, capsicum & sauces.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="chinese">
+        <img src="images/friedrice.png" alt="Schezwan Fried Rice">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Schezwan Fried Rice<span class="price">₹220</span></h3>
+            <p>Spicy fried rice with diced vegetables and Schezwan sauce.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="chinese">
+        <img src="images/Veg Manchurian Dry.png" alt="Veg Manchurian Dry">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Veg Manchurian Dry<span class="price">₹240</span></h3>
+            <p>Deep-fried vegetable balls in a thick, savory, and tangy sauce.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title" data-category-title="mexican">Mexican</h2>
+    <div class="menu-card" data-category="mexican">
+        <img src="images/Burritos.jpg" alt="Burritos">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Burritos<span class="price">₹320</span></h3>
+            <p>Flour tortillas stuffed with rice, beans, and fillings.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="mexican">
+        <img src="images/tacos.jpg" alt="Tacos">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Tacos<span class="price">₹280</span></h3>
+            <p>Soft or crispy tortillas filled with meat, beans, and veggies.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="mexican">
+        <img src="images/Cheese Quesadillas.png" alt="Cheese Quesadillas">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Cheese Quesadillas<span class="price">₹360</span></h3>
+            <p>Folded flour tortillas filled with melted cheese, served with salsa and sour cream.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="mexican">
+        <img src="images/chickroll.png" alt="Chicken Enchiladas">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Chicken Enchiladas<span class="price">₹410</span></h3>
+            <p>Rolled corn tortillas filled with chicken and covered in chili sauce and cheese.</p>
+        </div>
+    </div>
+    
+
+    <h2 class="section-title" data-category-title="thai">Thai</h2>
+    <div class="menu-card" data-category="thai">
+        <img src="images/thaichicken.jpg" alt="Thai">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Thai Basil Chicken<span class="price">₹350</span></h3>
+            <p>Stir-fried chicken with basil and chili.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="thai">
+        <img src="images/padthai.jpg" alt="Pad Thai">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Pad Thai<span class="price">₹420</span></h3>
+            <p>Stir-fried rice noodles with egg, tofu, shrimp, and peanuts.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="thai">
+        <img src="images/greencurry.png" alt="Green Curry">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Thai Green Curry<span class="price">₹490</span></h3>
+            <p>A rich, aromatic curry with coconut milk, vegetables, and fragrant Thai herbs.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="thai">
+        <img src="images/soup.png" alt="Tom Yum Soup">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Tom Yum Soup<span class="price">₹310</span></h3>
+            <p>Spicy and sour clear soup, traditionally flavored with lemon grass, kaffir lime leaves, and galangal.</p>
+        </div>
+    </div>
+    <div class="menu-card" data-category="thai">
+        <img src="images/stickymango.png" alt="Mango Sticky Rice">
+        <div class="menu-overlay">Order Now</div>
+        <div class="menu-info">
+            <h3>Mango Sticky Rice<span class="price">₹250</span></h3>
+            <p>Sweet sticky rice served with fresh sliced mango and coconut cream.</p>
+        </div>
+    </div>
 </div>
 
-<!-- Chinese -->
-<h2 class="section-title">Chinese</h2>
-<div class="menu-grid">
-  <div class="menu-card">
-    <img src="images/hakka.png" alt="Veg Hakka Noodles">
-    <div class="menu-overlay">Order Now</div>
-    <div class="menu-info">
-      <h3>Veg Hakka Noodles <span class="price">₹180</span></h3>
-      <p>Stir-fried noodles with vegetables & soy sauce.</p>
-    </div>
-  </div>
-  <div class="menu-card">
-    <img src="images/chick.png" alt="Chilli Chicken">
-    <div class="menu-overlay">Order Now</div>
-    <div class="menu-info">
-      <h3>Chilli Chicken <span class="price">₹260</span></h3>
-      <p>Spicy chicken tossed with onions, capsicum & sauces.</p>
-    </div>
-  </div>
-</div>
+<div id="cart-notification"></div>
 
-<!-- Desserts -->
-<h2 class="section-title">Mexican</h2>
-<div class="menu-grid">
-  <div class="menu-card">
-    <img src="images/Burritos.jpg" alt="Burritos">
-    <div class="menu-overlay">Order Now</div>
-    <div class="menu-info">
-      <h3>Burritos<span class="price">₹320</span></h3>
-      <p>Flour tortillas stuffed with rice, beans, and fillings.</p>
-    </div>
-  </div>
-  <div class="menu-card">
-    <img src="images/tacos.jpg" alt="Tacos">
-    <div class="menu-overlay">Order Now</div>
-    <div class="menu-info">
-      <h3>Tacos<span class="price">₹280</span></h3>
-      <p>Soft or crispy tortillas filled with meat, beans, and veggies.</p>
-    </div>
-  </div>
-</div>
-
-
-<h2 class="section-title">Thai</h2>
-<div class="menu-grid">
-  <div class="menu-card">
-    <img src="images/thaichicken.jpg" alt="Thai">
-    <div class="menu-overlay">Order Now</div>
-    <div class="menu-info">
-      <h3>Thai Basil Chicken<span class="price">₹350</span></h3>
-      <p>Stir-fried chicken with basil and chili.</p>
-    </div>
-  </div>
-  <div class="menu-card">
-    <img src="images/padthai.jpg" alt="Pad Thai">
-    <div class="menu-overlay">Order Now</div>
-    <div class="menu-info">
-      <h3>Pad Thai<span class="price">₹420</span></h3>
-      <p>Stir-fried rice noodles with egg, tofu, shrimp, and peanuts.</p>
-    </div>
-  </div>
-</div>
-<!-- Menu Pagination -->
-<div class="pagination">
-  <a href="menu1.html" class="active">1</a>
-  <a href="menu2.html">2</a>
-  <a href="menu3.html">3</a>
-  <a href="menu2.html">&rarr;</a>
-</div>
-
-<!-- Testimonial -->
 <div class="testimonial">
-  "Delicious food, cozy ambiance, and quick service! A must-visit restaurant in town."
-  <span>- Happy Customer</span>
+    "Delicious food, cozy ambiance, and quick service! A must-visit restaurant in town."
+    <span>- Happy Customer</span>
 </div>
 
-<!-- Customer Reviews -->
-Customer Reviews
 <h2 class="section-title">💬 Customer's Review</h2>
-<div class="reviews" style="display: flex; gap: 20px; justify-content: center; flex-wrap: nowrap;">
-  
-  <div class="review-card" style="text-align: center; width: 200px;">
-    <img src="images/dil.png" alt="Customer 1" style="width:100px; border-radius:50%;">
-    <h3>Dil Sharma</h3>
-    <p class="stars">★★★★★</p>
-    <p>"Amazing variety and excellent taste. The staff is super friendly!"</p>
-  </div>
+<div class="reviews">
+    <div class="review-card">
+        <img src="images/dil.png" alt="Customer 1">
+        <h3>Dil Sharma</h3>
+        <p class="stars">★★★★★</p>
+        <p>"Amazing variety and excellent taste. The staff is super friendly!"</p>
+    </div>
 
-  <div class="review-card" style="text-align: center; width: 200px;">
-    <img src="images/aryan.jpg" alt="Customer 2" style="width:100px; border-radius:50%;">
-    <h3>Aryan Sharma</h3>
-    <p class="stars">★★★★☆</p>
-    <p>"I love the cold coffee here, definitely the best in town."</p>
-  </div>
+    <div class="review-card">
+        <img src="images/aryan.jpg" alt="Customer 2">
+        <h3>Aryan Sharma</h3>
+        <p class="stars">★★★★☆</p>
+        <p>"I love the cold coffee here, definitely the best in town."</p>
+    </div>
 
-  <div class="review-card" style="text-align: center; width: 200px;">
-    <img src="images/sahib.png" alt="Customer 3" style="width:100px; border-radius:50%;">
-    <h3>Sahibjeet Singh</h3>
-    <p class="stars">★★★★★</p>
-    <p>"Delicious food, cozy ambiance, and quick service! A must-visit restaurant."</p>
-  </div>
+    <div class="review-card">
+        <img src="images/sahib.png" alt="Customer 3">
+        <h3>Sahibjeet Singh</h3>
+        <p class="stars">★★★★★</p>
+        <p>"Delicious food, cozy ambiance, and quick service! A must-visit restaurant."</p>
+    </div>
 
-  <div class="review-card" style="text-align: center; width: 200px;">
-    <img src="images/devansh.jpg" alt="Customer 4" style="width:100px; border-radius:50%;">
-    <h3>Devansh Mangla</h3>
-    <p class="stars">★★★★★</p>
-    <p>"The biryani was absolutely delicious! I’ll definitely come again with friends."</p>
-  </div>
-
-  <div class="review-card" style="text-align: center; width: 200px;">
-    <img src="images/gia.png" alt="Customer 5" style="width:100px; border-radius:50%;">
-    <h3>Gia Goyal</h3>
-    <p class="stars">★★★★☆</p>
-    <p>"Loved the desserts, especially the chocolate lava cake. Highly recommend!"</p>
-  </div>
-
+    <div class="review-card">
+        <img src="images/devansh.jpg" alt="Customer 4">
+        <p class="stars">★★★★★</p>
+        <p>"The biryani was absolutely delicious! I’ll definitely come again with friends."</p>
+    </div>
 </div>
 
 
-<!-- 🔹 Simple Navigation Bar -->
 <nav class="bottom-navbar">
-  <ul>
-    <li><a href="restaurant.html">Home</a></li>
-    <li><a href="menu.html">Menu</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+    <ul>
+        <li><a href="restaurant.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
 </nav>
 
-
-
-
-
 <footer>
-  © 2025 Amoura Restaurant. Crafted with <span>❤</span> and passion.
+    © 2025 Amoura Restaurant. Crafted with <span>❤</span> and passion.
 </footer>
 
- 
-
+<script src="menu.js"></script>
 
 </body>
 </html>
