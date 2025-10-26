@@ -1,48 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <title>Contact Us | Amoura</title>
+  <style>
+    body {
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+    body.loaded {
+      opacity: 1;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(245, 93, 78, 0.6); }
+      70% { box-shadow: 0 0 0 10px rgba(245, 93, 78, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(245, 93, 78, 0); }
+    }
+    input:focus, textarea:focus {
+      box-shadow: 0 0 8px #ff7f50;
+      transition: 0.3s;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-r from-[#] to-[#] min-h-screen flex items-center justify-center">
 
-  <div class="bg-white rounded-2xl shadow-2xl overflow-hidden w-11/12 md:w-4/5 lg:w-3/4 flex flex-col md:flex-row">
-    
-    <!-- Image Section -->
+<body class="bg-gradient-to-r from-[#FFD6CC] to-[#FFF0EB] min-h-screen flex items-center justify-center">
+
+  <div class="bg-white rounded-2xl shadow-2xl overflow-hidden w-11/12 md:w-4/5 lg:w-3/4 flex flex-col md:flex-row transform transition duration-500 hover:scale-[1.01]">
     <div class="md:w-1/2">
-      <img src="images/logooo.png" alt="Contact Us" class="w-full h-full object-cover">
+      <img src="images/logooo.png" alt="Contact Us" class="w-full h-full object-cover" />
     </div>
 
-    <!-- Form Section with coral gradient -->
     <div class="md:w-1/2 p-8 bg-gradient-to-br from-[#FFE4DC] via-[#FFF0EB] to-[#FFD6CC]">
       <h2 class="text-4xl font-bold text-[#FF7F50] text-center mb-6 drop-shadow-md">Get in Touch</h2>
       
-      <form class="space-y-5">
+      <form id="contactForm" class="space-y-5">
         <div>
           <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" 
-                 class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF7F50] shadow-sm" 
+          <input type="text" id="name" name="name" placeholder="Enter your name"
+                 class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF7F50] shadow-sm"
                  style="border-color: #f55d4e;">
         </div>
 
         <div>
           <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">Your Email</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" 
-                 class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 shadow-sm" 
+          <input type="email" id="email" name="email" placeholder="Enter your email"
+                 class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 shadow-sm"
                  style="border-color:#f55d4e;">
         </div>
 
         <div>
           <label for="message" class="block text-sm font-semibold text-gray-700 mb-1">Your Message</label>
-          <textarea id="message" name="message" rows="4" placeholder="Write your message..." 
-                    class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 shadow-sm" 
+          <textarea id="message" name="message" rows="4" placeholder="Write your message..."
+                    class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 shadow-sm"
                     style="border-color: #f55d4e;"></textarea>
         </div>
 
-        <button type="submit" 
-                class="w-full font-semibold py-3 rounded-xl shadow-lg transition" 
+        <button type="submit" id="sendBtn"
+                class="w-full font-semibold py-3 rounded-xl shadow-lg transition hover:scale-105"
                 style="background: #f55d4e; color:rgb(237, 215, 215);">
           Send Message
         </button>
@@ -56,5 +72,55 @@
     </div>
   </div>
 
+  <div id="successModal" class="hidden fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center">
+    <div class="bg-white rounded-xl shadow-xl p-6 text-center">
+      <h3 class="text-2xl font-bold text-green-600 mb-2">Message Sent! ✅</h3>
+      <p class="text-gray-600 mb-4">Thank you for contacting us. We’ll get back to you soon.</p>
+      <button id="closeModal" class="px-6 py-2 rounded-lg text-white font-semibold" style="background:#f55d4e;">OK</button>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    const form = document.getElementById("contactForm");
+    const modal = document.getElementById("successModal");
+    const closeModal = document.getElementById("closeModal");
+    const sendBtn = document.getElementById("sendBtn");
+
+    sendBtn.addEventListener("mouseenter", () => {
+      sendBtn.style.animation = "pulse 1.5s infinite";
+    });
+    sendBtn.addEventListener("mouseleave", () => {
+      sendBtn.style.animation = "none";
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        alert("⚠️ Please fill all fields before submitting.");
+        return;
+      }
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        alert("⚠️ Please enter a valid email address.");
+        return;
+      }
+
+      modal.classList.remove("hidden");
+      form.reset();
+    });
+
+    closeModal.addEventListener("click", () => {
+      modal.classList.add("hidden");
+    });
+  </script>
 </body>
 </html>
