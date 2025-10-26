@@ -1,16 +1,16 @@
-// Chatbot Toggle
+
 const chatbotIcon = document.getElementById('chatbot-icon');
 const chatbotBox = document.getElementById('chatbot-box');
 const messagesContainer = document.getElementById('chatbot-messages');
 const inputField = document.getElementById('chatbot-input');
 const sendBtn = document.getElementById('chatbot-send');
 
-// Show / hide chatbot
+
 chatbotIcon.addEventListener('click', () => {
   chatbotBox.style.display = chatbotBox.style.display === 'flex' ? 'none' : 'flex';
 });
 
-// Function to add messages
+
 function addMessage(message, sender) {
   const msgDiv = document.createElement('div');
   msgDiv.classList.add(sender === 'user' ? 'user-msg' : 'bot-msg');
@@ -19,7 +19,7 @@ function addMessage(message, sender) {
   messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
 
-// Bot response logic
+
 function botReply(userMsg) {
   const msg = userMsg.toLowerCase();
   let reply = "I'm not sure I understand. Could you rephrase that? 😊";
@@ -34,7 +34,7 @@ function botReply(userMsg) {
   setTimeout(() => addMessage(reply, 'bot'), 600);
 }
 
-// Send message
+
 sendBtn.addEventListener('click', () => {
   const userMsg = inputField.value.trim();
   if (userMsg) {
