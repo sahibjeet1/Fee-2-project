@@ -414,3 +414,62 @@ body {
   background: #ff9472;
 }
 
+/* booking */
+
+.booking-section {
+  max-width: 600px;          
+  margin: 60px auto;         
+  background: #fff8f0;       
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.booking-section:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.booking-section h2 {
+  font-size: 2.2rem;
+  color: #4b2e05;
+  margin-bottom: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.booking-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.booking-section label {
+  font-weight: 600;
+  text-align: left;
+  color: #4b2e05;
+}
+
+.booking-section input,
+.booking-section button {
+  padding: 12px;
+  border: 1px solid #c2a47b;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.booking-section button {
+  background-color: #b9936c;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  
+}
+
+.booking-section button:hover {
+  background-color: #8c6b48;
+}
